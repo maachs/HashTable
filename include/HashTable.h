@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <stdint.h>
 #include <ctype.h>
 #include <assert.h>
 
@@ -17,16 +18,29 @@ enum ErrorCode
     BUFFER_ERROR = 2
 };
 
+enum IsInTableStatus
+{
+    IN_TABLE     = 1,
+    NOT_IN_TABLE = 0
+};
+
 struct ListElem_t
 {
     ListElem_t* next;
     char*       elem;
 };
 
+struct List_t
+{
+    ListElem_t* head;
+    ListElem_t* tail;
+    int size;
+};
+
 struct HashTable_t
 {
-    ListElem_t** buckets;
-    int size;
+    List_t* buckets;
+    int     size;
 };
 
 #endif
