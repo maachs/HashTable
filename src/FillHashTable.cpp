@@ -46,7 +46,7 @@ ErrorCode FillHashTable(HashTable_t* hash_table)
 
             uint32_t hash = CRC32((const uint8_t*)hash_word, word_elem);
 
-            bool is_in_table = CheckWordInTable(hash_table, hash_word, hash);
+            int is_in_table = CheckWordInTable(hash_table, hash_word, hash);
 
             if(is_in_table == 0)
             {
@@ -76,7 +76,7 @@ int AddNewWord(HashTable_t* hash_table, const char* word, uint32_t hash)
     return 0;
 }
 
-bool CheckWordInTable(HashTable_t* hash_table, const char* word, uint32_t hash)
+int CheckWordInTable(HashTable_t* hash_table, const char* word, uint32_t hash)
 {
     assert(word);
     assert(hash_table);
@@ -88,7 +88,8 @@ bool CheckWordInTable(HashTable_t* hash_table, const char* word, uint32_t hash)
     {
         if(!strcmp(word, list_ptr->elem))
         {
-            return IN_TABLE;
+            list_ptr->counter++;
+            return list_ptr->counter;
         }
         else
         {

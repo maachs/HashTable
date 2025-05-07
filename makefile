@@ -19,7 +19,7 @@ BUILD_DIR   := build
 SRC_DIR     := src
 INCLUDE_DIR := include
 
-SRC_FILES = $(SRC_DIR)/List.cpp $(SRC_DIR)/main.cpp $(SRC_DIR)/InitDtor.cpp $(SRC_DIR)/FillHashTable.cpp $(SRC_DIR)/HashFunction.cpp
+SRC_FILES = $(SRC_DIR)/List.cpp $(SRC_DIR)/main.cpp $(SRC_DIR)/InitDtor.cpp $(SRC_DIR)/FillHashTable.cpp $(SRC_DIR)/HashFunction.cpp $(SRC_DIR)/FindWord.cpp
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
 TARGET := $(BUILD_DIR)/hash_table.out

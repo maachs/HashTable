@@ -14,6 +14,7 @@ ListElem_t* ListInsert(List_t* list, const char* word)
 
     size_t size_word = strlen(word);   //maybe create argument func with len
 
+    new_list_elem->counter = 0;
     new_list_elem->elem = (char*) calloc(size_word + 1, sizeof(char));
     if(!new_list_elem->elem)
     {

@@ -3,19 +3,19 @@
 // #include <stdint.h>
 // #include <string.h>
 
-uint32_t crc32_table[CALC_HASH_SIZE] = {};
+static uint32_t crc32_table[CALC_HASH_SIZE] = {};
 
 void CRC32Init()
 {
-    uint32_t polynomial = HASH_CONST;
-    for (uint32_t i = 0; i < CALC_HASH_SIZE; i++)
+    //uint32_t polynomial = HASH_CONST;
+    for (uint32_t crc_elem = 0; crc_elem < CALC_HASH_SIZE; crc_elem++)
     {
-        uint32_t crc = i;
+        uint32_t crc = crc_elem;
         for (int j = 0; j < 8; j++)
         {
-            crc = (crc >> 1) ^ ((crc & 1) ? polynomial : 0);
+            crc = (crc >> 1) ^ ((crc & 1) ? POLYNOMIAL_CONST : 0);
         }
-        crc32_table[i] = crc;
+        crc32_table[crc_elem] = crc;
     }
 }
 
@@ -28,7 +28,7 @@ uint32_t CRC32(const uint8_t *data, size_t length)
     }
     return crc ^ 0xFFFFFFFF;
 }
-//
+
 //  int main() {
 //      CRC32Init();
 //      const char *text = "Hello";

@@ -28,6 +28,7 @@ struct ListElem_t
 {
     ListElem_t* next;
     char*       elem;
+    int         counter;
 };
 
 struct List_t

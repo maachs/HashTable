@@ -1,5 +1,6 @@
 #include "InitDtor.h"
 #include "FillHashTable.h"
+#include "FindWord.h"
 
 int main()
 {
@@ -16,6 +17,8 @@ int main()
         HashTableDtor(&hash_table);
         fprintf(stderr, "ERROR: fill table\n");
     }
+
+    FindWord(&hash_table);
     HashTableDtor(&hash_table);
 
     return 0;
