@@ -9,7 +9,7 @@
 #include <ctype.h>
 #include <assert.h>
 
-const int HASH_TABLE_SIZE = 100;
+const int HASH_TABLE_SIZE = 113;
 
 enum ErrorCode
 {
